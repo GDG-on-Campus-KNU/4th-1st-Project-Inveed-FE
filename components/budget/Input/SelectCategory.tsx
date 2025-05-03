@@ -7,21 +7,23 @@ import {
   Easing,
   Dimensions,
 } from "react-native";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import "@/global.css";
 import tw from "@/utils/tw";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { FontAwesome5 } from "@expo/vector-icons";
+import { getCategoryIcon } from "@/components/budget/iconMapper";
 
 const categories = [
-  "식비",
-  "카페/간식",
-  "술/유흥",
-  "생활",
-  "뷰티/미용",
-  "패션",
-  "주거/통신",
-  "의료/건강",
-  "기타",
+  "food",
+  "cafe",
+  "entertainment",
+  "life",
+  "beauty",
+  "fashion",
+  "housing",
+  "health",
+  "others",
 ];
 const screenHeight = Dimensions.get("window").height;
 
@@ -83,15 +85,26 @@ const SelectCategory = () => {
           ]}
         >
           <View style={tw`flex-row flex-wrap`}>
-            {categories.map((category) => (
-              <Pressable
-                key={category}
-                onPress={() => handleSelect(category)}
-                style={tw`w-1/4 p-2`}
-              >
-                <Text style={tw`text-center text-black`}>{category}</Text>
-              </Pressable>
-            ))}
+            {categories.map((category) => {
+              const {
+                name: iconName,
+                color,
+                title,
+              } = getCategoryIcon(category);
+
+              return (
+                <Pressable
+                  key={category}
+                  onPress={() => handleSelect(title)}
+                  style={tw`w-1/4 p-2`}
+                >
+                  <View style={tw`items-center p-4`}>
+                    <FontAwesome5 name={iconName} size={16} color={color} />
+                    <Text style={tw`text-center text-black mt-1`}>{title}</Text>
+                  </View>
+                </Pressable>
+              );
+            })}
           </View>
 
           <Pressable onPress={closeModal} style={tw`pt-4`}>
