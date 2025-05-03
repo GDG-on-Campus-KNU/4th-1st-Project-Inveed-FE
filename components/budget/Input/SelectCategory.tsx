@@ -82,15 +82,18 @@ const SelectCategory = () => {
             },
           ]}
         >
-          {categories.map((category) => (
-            <Pressable
-              key={category}
-              onPress={() => handleSelect(category)}
-              style={tw`py-3 border-b border-gray-200`}
-            >
-              <Text style={tw`text-base text-black`}>{category}</Text>
-            </Pressable>
-          ))}
+          <View style={tw`flex-row flex-wrap`}>
+            {categories.map((category) => (
+              <Pressable
+                key={category}
+                onPress={() => handleSelect(category)}
+                style={tw`w-1/4 p-2`}
+              >
+                <Text style={tw`text-center text-black`}>{category}</Text>
+              </Pressable>
+            ))}
+          </View>
+
           <Pressable onPress={closeModal} style={tw`pt-4`}>
             <Text style={tw`text-center text-gray-500`}>취소</Text>
           </Pressable>
