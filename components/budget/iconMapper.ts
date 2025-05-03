@@ -22,6 +22,13 @@ export const getCategoryIcon = (
         color: "#4caf50",
         title: "의료/건강",
       };
+    case "salary":
+      return { name: "money-check-alt", color: "#fbc02d", title: "급여" };
+    case "allowance":
+      return { name: "coins", color: "#6d4c41", title: "용돈" };
+    case "scholarship":
+      return { name: "book", color: "#3f51b5", title: "장학금" };
+
     case "others":
       return { name: "ellipsis-h", color: "#000000", title: "기타" };
     default:
