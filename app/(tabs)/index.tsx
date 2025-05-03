@@ -6,9 +6,13 @@ import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { TransferNotification } from "@/components/transfer/TransferNotification";
-import TransactionInput from "@/components/budget/Input/TransactionInput";
+
 export default function HomeScreen() {
-  return <TransactionInput />;
+  return (
+    <View className="bg-white">
+      <TransferNotification></TransferNotification>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
