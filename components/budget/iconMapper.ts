@@ -22,7 +22,6 @@ export const getCategoryIcon = (
         color: "#4caf50",
         title: "의료/건강",
       };
-
     case "salary":
       return { name: "money-check-alt", color: "#fbc02d", title: "급여" };
     case "allowance":

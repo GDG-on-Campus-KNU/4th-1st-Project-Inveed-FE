@@ -7,12 +7,15 @@ import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { TransferNotification } from "@/components/transfer/TransferNotification";
 
+
+import { HelloWave } from "@/components/HelloWave";
+import ParallaxScrollView from "@/components/ParallaxScrollView";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
+import { TransferNotification } from "@/components/transfer/TransferNotification";
+import SelectCategory from "@/components/budget/Input/SelectCategory";
 export default function HomeScreen() {
-  return (
-    <View className="bg-white">
-      <TransferNotification></TransferNotification>
-    </View>
-  );
+  return <SelectCategory />;
 }
 
 const styles = StyleSheet.create({
