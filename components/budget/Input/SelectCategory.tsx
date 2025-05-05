@@ -8,8 +8,7 @@ import {
   Dimensions,
 } from "react-native";
 import { useRef, useState } from "react";
-import "@/global.css";
-import tw from "@/utils/tw";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { getCategoryIcon } from "@/components/budget/iconMapper";
@@ -31,6 +30,9 @@ const SelectCategory = () => {
   const [selected, setSelected] = useState<string | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
   const slideAnimation = useRef(new Animated.Value(screenHeight)).current;
+
+  const insets = useSafeAreaInsets();
+  const TAB_BAR_HEIGHT = 80;
 
   const openModal = () => {
     setModalVisible(true);
@@ -60,12 +62,12 @@ const SelectCategory = () => {
     <>
       <Pressable
         onPress={openModal}
-        style={tw`flex flex-row justify-between items-center w-full px-4 py-5 border-b border-gray-300`}
+        className="flex flex-row justify-between items-center w-full px-4 py-5 border-b border-label"
       >
-        <Text style={tw`w-1/5 text-start font-semibold text-gray-500`}>
+        <Text className="w-1/5 text-start font-semibold text-title">
           카테고리
         </Text>
-        <Text style={tw`flex-grow text-start text-gray-400`}>
+        <Text className="flex-grow text-start text-label">
           {selected || "카테고리 선택하기"}
         </Text>
         <FontAwesome name="chevron-right" size={16} color="gray" />
@@ -73,18 +75,17 @@ const SelectCategory = () => {
 
       <Modal transparent visible={modalVisible} animationType="none">
         <Pressable
-          style={tw`flex-1 bg-black bg-opacity-30`}
+          className="flex-1 bg-black bg-opacity-30"
           onPress={closeModal}
         />
         <Animated.View
-          style={[
-            tw`absolute bottom-0 w-full bg-white rounded-t-2xl p-4`,
-            {
-              transform: [{ translateY: slideAnimation }],
-            },
-          ]}
+          style={{
+            transform: [{ translateY: slideAnimation }],
+            paddingBottom: insets.bottom + TAB_BAR_HEIGHT,
+          }}
+          className="absolute bottom-0 w-full bg-white rounded-t-2xl pt-4 pb-15"
         >
-          <View style={tw`flex-row flex-wrap`}>
+          <View className="flex-row flex-wrap">
             {categories.map((category) => {
               const {
                 name: iconName,
@@ -96,20 +97,16 @@ const SelectCategory = () => {
                 <Pressable
                   key={category}
                   onPress={() => handleSelect(title)}
-                  style={tw`w-1/4 p-2`}
+                  className="w-1/4 p-2"
                 >
-                  <View style={tw`items-center p-4`}>
+                  <View className="items-center p-4">
                     <FontAwesome5 name={iconName} size={16} color={color} />
-                    <Text style={tw`text-center text-black mt-1`}>{title}</Text>
+                    <Text className="text-center text-black mt-1">{title}</Text>
                   </View>
                 </Pressable>
               );
             })}
           </View>
-
-          <Pressable onPress={closeModal} style={tw`pt-4`}>
-            <Text style={tw`text-center text-gray-500`}>취소</Text>
-          </Pressable>
         </Animated.View>
       </Modal>
     </>
