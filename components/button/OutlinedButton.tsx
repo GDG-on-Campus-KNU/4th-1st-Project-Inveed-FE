@@ -8,15 +8,14 @@ type OutlinedButtonProps = {
 };
 
 const OutlinedButton = ({ color = "green", text }: OutlinedButtonProps) => {
-  const borderColor =
-    color === "green" ? "border-green-500" : "border-gray-400";
-  const textColor = color === "green" ? "text-green-500" : "text-gray-400";
+  const borderColor = color === "green" ? "border-pointgreen" : "border-label";
+  const textColor = color === "green" ? "text-pointgreen" : "text-label";
 
   return (
     <Pressable
-      style={tw`flex flex-row justify-center items-center py-2 w-14 rounded-lg bg-white border border ${borderColor}`}
+      className={`flex flex-row justify-center items-center py-2 w-14 rounded-lg bg-white border border ${borderColor}`}
     >
-      <Text style={tw`ml-3 mr-3 text-sm text-left ${textColor}`}>{text}</Text>
+      <Text className={`ml-3 mr-3 text-sm text-left ${textColor}`}>{text}</Text>
     </Pressable>
   );
 };
