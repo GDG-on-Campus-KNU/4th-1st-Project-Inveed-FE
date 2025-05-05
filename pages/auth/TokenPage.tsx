@@ -1,4 +1,5 @@
-import { View, Text, TextInput, Pressable, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
+import { layoutStyles } from "@/constants/layout";
 
 import HanGukLogo from "@/assets/images/hangukLogo.svg";
 import TextLogo from "@/assets/images/TextLogo.svg";
@@ -20,7 +21,7 @@ export default function TokenPage() {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={layoutStyles.screenContainer}>
       <TextLogo />
       <View>
         <Text className="text-base text-center text-label">
@@ -41,13 +42,3 @@ export default function TokenPage() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 32,
-    gap: 32,
-  },
-});

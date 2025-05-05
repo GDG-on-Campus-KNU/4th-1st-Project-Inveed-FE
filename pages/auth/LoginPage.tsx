@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
+import { layoutStyles } from "@/constants/layout";
 
 import InveedLogo from "@/assets/images/InveedLogo.svg";
 import TextLogo from "@/assets/images/TextLogo.svg";
@@ -16,7 +17,7 @@ const LoginPage = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={layoutStyles.screenContainer}>
       <InveedLogo />
       <TextLogo />
       <Loginbutton
@@ -37,13 +38,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 32,
-    gap: 32,
-  },
-});
