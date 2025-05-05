@@ -1,5 +1,4 @@
 import { Pressable, Text } from "react-native";
-import tw from "@/utils/tw";
 
 const RoundButton = ({ text }: { text: string }) => {
   return (

@@ -1,5 +1,4 @@
 import { View, Text } from "react-native";
-import tw from "@/utils/tw";
 
 type InvestItemProps = {
   name: string;

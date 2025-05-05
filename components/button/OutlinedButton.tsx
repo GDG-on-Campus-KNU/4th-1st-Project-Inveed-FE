@@ -1,6 +1,4 @@
 import { Pressable, Text } from "react-native";
-import "@/global.css";
-import tw from "@/utils/tw";
 
 type OutlinedButtonProps = {
   color?: "green" | "gray";

@@ -1,5 +1,4 @@
-import { View, Text, Image } from 'react-native';
-import '@/global.css';
+import { View, Text, Image } from "react-native";
 
 type ExpenseDetailItemProps = {
   date: string;
@@ -7,7 +6,7 @@ type ExpenseDetailItemProps = {
   name: string;
   detail: string;
   price: number;
-  type: 'income' | 'expense';
+  type: "income" | "expense";
 };
 
 export const ExpenseDetailItem = ({
@@ -16,7 +15,7 @@ export const ExpenseDetailItem = ({
   name,
   detail,
   price,
-  type = 'expense',
+  type = "expense",
 }: ExpenseDetailItemProps) => {
   return (
     <View className="flex flex-col w-full rounded-xl p-3 bg-white gap-2 shadow-md shadow-gray-300">
@@ -34,7 +33,7 @@ export const ExpenseDetailItem = ({
         </View>
         <Text
           className={
-            type === 'income' ? 'text-blue font-bold' : 'font-bold text-red'
+            type === "income" ? "text-blue font-bold" : "font-bold text-red"
           }
         >
           {price}원

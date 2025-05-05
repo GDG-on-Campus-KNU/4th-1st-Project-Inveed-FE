@@ -1,5 +1,4 @@
 import { View, Text } from "react-native";
-import tw from "@/utils/tw";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 const TotalExpense = ({ amount }: { amount: number }) => {
