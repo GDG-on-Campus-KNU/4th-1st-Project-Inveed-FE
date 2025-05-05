@@ -1,16 +1,19 @@
 import { View, Text, TextInput } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Colors } from "@/constants/Colors";
 import { colors } from "@/constants";
 
-const TransactionInput = () => {
+const Input = ({
+  title,
+  placeholder,
+}: {
+  title: string;
+  placeholder: string;
+}) => {
   return (
-    <View className="flex flex-row justify-between items-center w-full px-4 py-5 border-b border-label">
-      <Text className="w-1/5 text-start font-semibold text-title">
-        거래내용
-      </Text>
+    <View className="flex flex-row justify-between items-center w-4/5 px-4 py-5 border-b border-gray-200">
+      <Text className="w-1/5 text-start font-semibold text-title">{title}</Text>
       <TextInput
-        placeholder="거래내용을 입력해 주세요"
+        placeholder={placeholder}
         placeholderTextColor={colors.LABEL}
         className="flex-grow text-start text-black border-none outline-none"
         underlineColorAndroid="transparent"
@@ -21,4 +24,4 @@ const TransactionInput = () => {
   );
 };
 
-export default TransactionInput;
+export default Input;
