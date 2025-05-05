@@ -1,6 +1,5 @@
 import { View, Text, TextInput } from "react-native";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { Colors } from "@/constants/Colors";
 import { colors } from "@/constants";
 
 const TransactionInput = () => {
